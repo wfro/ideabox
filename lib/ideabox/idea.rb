@@ -1,10 +1,11 @@
 class Idea
-  attr_reader :title, :description, :rank
-  attr_accessor :id
+  attr_reader   :rank
+  attr_accessor :id, :title, :description
+
   def initialize(title, description)
-    @title = title
+    @title       = title
     @description = description
-    @rank = 0
+    @rank        = 0
   end
 
   def like!
@@ -13,5 +14,9 @@ class Idea
 
   def <=>(other)
     rank <=> other.rank
+  end
+
+  def new?
+    !id
   end
 end

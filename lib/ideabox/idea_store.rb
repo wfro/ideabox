@@ -1,10 +1,11 @@
 class IdeaStore
+
   def self.save(idea)
-    # use value of @all if something there
-    # set to [] if @all is nil
-    @all = @all || []
-    idea.id = next_id
-    @all << idea
+    @all ||= []
+    if idea.new?
+      idea.id = next_id
+      @all << idea
+    end
     idea.id
   end
 
@@ -22,5 +23,8 @@ class IdeaStore
     @all.length
   end
 
+  def self.delete_all
+    @all = []
+  end
 
 end

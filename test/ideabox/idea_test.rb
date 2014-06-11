@@ -35,4 +35,10 @@ class IdeaTest < Minitest::Test
     idea.id = 1
     assert_equal 1, idea.id
   end
+
+  def test_a_new_idea
+  idea = Idea.new('sleep', 'all day')
+  idea.id = 1
+  refute idea.new?
+  end
 end
